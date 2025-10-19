@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><!--эта строка нужна для того, чтобы браузер не угадывал кодировку-->
+  <title>
+    сортировка
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+  "use strict";
+  /*
+	function Calculator() {
+	
+		this.methods = {
+		
+		"+" : (sum, num) => parseInt(sum) + parseInt(num),
+		"-" : (sub, num) => sub - parseInt(num)
+		}
+		this.calculate = function(str) {
+		
+		for (let prop in this.methods) {if (str.includes(prop))  {
+			
+			return str
+				.split(prop).reduce(this.methods[prop]); 
+				
+				}
+			
+			}
+		
+		}
+	
+		this.addMethod = function(sign, func) {
+			
+			this.methods[sign] = func;
+		}
+	}
+	
+	let calc = new Calculator;
+	
+	*/
+	
+	
+	function Calculator() {
+
+  this.methods = {
+    "-": (a, b) => a - b,
+    "+": (a, b) => a + b
+  };
+
+  this.calculate = function(str) {
+
+    let split = str.split(' '),
+      a = +split[0],
+      op = split[1],
+      b = +split[2]
+
+    if (!this.methods[op] || isNaN(a) || isNaN(b)) {
+      return NaN;
+    }
+
+    return this.methods[op](a, b);
+  }
+
+  this.addMethod = function(name, func) {
+    this.methods[name] = func;
+  };
+}
+
+	
+	let powerCalc = new Calculator;
+	powerCalc.addMethod("*", (a, b) => a * b);
+	powerCalc.addMethod("/", (a, b) => a / b);
+	powerCalc.addMethod("**", (a, b) => a ** b);
+
+	alert(powerCalc.calculate("5 * 3"));
+	alert(powerCalc.calculate("4 / 2"));
+	let result = powerCalc.calculate("2 ** 3");
+	alert( result ); // 8
+	
+	
+  </script>
+</body>
+</html>

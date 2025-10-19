@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><!--эта строка нужна для того, чтобы браузер не угадывал кодировку-->
+  <title>
+    pow
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+  function pow(num, degree) {
+  
+  if (degree >= 0) {
+	if (degree > 1) {return num * pow(num,degree-1)
+	} 
+	else if (degree === 0) 
+	{
+	return 1
+	} 
+	else{ return num;}
+  } /*для отрицательного числа:*/
+  else {
+	if (degree) {
+	return 1/pow(num,-degree);
+	}
+  }
+  }
+  
+  function showMessage(arg) {alert(`Результат: ${arg}`);}
+  
+  let number,
+  degree;
+  
+  let result = pow(number = +prompt("Введите число", 10), degree = +prompt('Степень', 2));
+  showMessage(result);
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><!--эта строка нужна для того, чтобы браузер не угадывал кодировку-->
+  <title>
+    Простая ленивая инкрементальная игра
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+  let ECMA = prompt("Какое «официальное» название JavaScript?");
+  
+  if (ECMA == "ECMAScript") {
+  alert("ДА!");
+  } else alert("НЕТ!");
+  
+  ECMA == "ECMAScript" ? alert("ЕЩЁ РАЗ ДА!") : alert("НЕТ!");
+  
+  prompt("*Что-то спросил*, вы согласны?") == "ДА!" ? alert("Утвердительно ес") : alert("Не-а");
+  
+  alert("Ваще число больше нуля!");
+  if (prompt("Введите тут ваше число") > 0) {
+  } else if (prompt("Введите тут ваше число") == 0) {
+  alert("Ваше число равно нулю!");} else {alert("Ваше число отрицательное!");}
+  </script>
+</body>
+</html>

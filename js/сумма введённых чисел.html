@@ -1,0 +1,69 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><!--эта строка нужна для того, чтобы браузер не угадывал кодировку-->
+  <title>
+    стили
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+  "use strict";
+  
+	let user_numbers = [];
+	
+	alert(`сумма: ${sumInput(user_numbers)}`);
+	
+	function sumInput(your_mass) {
+		
+		let index = 0,
+		sum = 0,
+		num;
+		
+		while (num = prompt("Введите число") && num !== null) {
+		
+			if (!isFinite(num)) break
+			
+			your_mass[index] = +num;
+			index += 1;
+		}
+		
+		index = 0;
+		
+		do {
+		
+			sum += your_mass[index];
+			index += 1;
+		} while (index < your_mass.length);
+		
+	return sum;
+	}
+	
+	
+	
+	/*function sumInput() {
+
+  let numbers = [];
+
+  while (true) {
+
+    let value = prompt("Введите число", 0);
+
+    // Прекращаем ввод?
+    if (value === "" || value === null || !isFinite(value)) break;
+
+    numbers.push(+value);
+  }
+
+  let sum = 0;
+  for (let number of numbers) {
+    sum += number;
+  }
+  return sum;
+}
+
+alert( sumInput() );*/
+  </script>
+</body>
+</html>

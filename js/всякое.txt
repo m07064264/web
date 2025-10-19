@@ -1,0 +1,9 @@
+npm install -g eslint
+
+npm install mocha
+$ mkdir test
+$ $EDITOR test/test.js # or open with your favorite editor
+$ npm install --global mocha
+or as a development dependency for your project:
+
+$ npm install --save-dev mocha

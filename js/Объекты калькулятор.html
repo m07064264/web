@@ -1,0 +1,44 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><!--эта строка нужна для того, чтобы браузер не угадывал кодировку-->
+  <title>
+    pow
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+  "use strict";
+  
+		let calculator = {
+		
+		
+		
+			read() {
+			
+				this.num_a = +prompt("Число 1", 5);
+				this.num_b = +prompt("Число 2", 3);
+			},
+			
+			sum() {
+			
+				return this.num_a + this.num_b;
+			},
+			
+			mul() {
+			
+				return this.num_a * this.num_b;
+			},
+			
+			
+		
+	};
+
+	calculator.read();
+	alert( calculator.sum() );
+	alert( calculator.mul() );
+	
+  </script>
+</body>
+</html>

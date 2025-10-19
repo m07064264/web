@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><!--эта строка нужна для того, чтобы браузер не угадывал кодировку-->
+  <title>
+    чтение числа
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+  "use strict";
+  
+	alert(`число ${readNumber()} введено верно!`);
+  
+	function readNumber() {
+	
+		let number = prompt('Ввведите число');
+		
+		if (number === null || number === '') {
+		
+			return 'НиКакОе';
+			
+		} else if (isFinite(number)) {
+			
+			return number;
+			
+			} else { 
+			
+			alert
+			(`Вы неправильно ввели число!\nПопробуйте ещё раз.`);
+			return readNumber();
+			}
+	}
+	
+	
+  </script>
+</body>
+</html>

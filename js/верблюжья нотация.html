@@ -1,0 +1,32 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><!--эта строка нужна для того, чтобы браузер не угадывал кодировку-->
+  <title>
+    спам
+  </title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+  "use strict";
+
+	alert(camelize("background-color"));
+	alert(camelize("list-style-image"));
+	alert(camelize("-webkit-transition"));
+	
+	function camelize(str) {
+	
+		let words = str.split("-");
+	
+		if (words[0] == false) words.shift();
+		
+		words = words.map(word => words.indexOf(word) > 0 ? word.at(0).toUpperCase() + word.slice(1) : word);
+		
+		words = words.join('');
+		
+	return words;
+	}
+  </script>
+</body>
+</html>
