@@ -1,0 +1,21 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "learn react",
+  "main": "app.js",
+  "scripts": {
+    "test": "abc",
+    "start": "react-scripts start"
+  },
+  "keywords": [
+    "my-app"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "@userfront/react": "^2.0.1"
+  },
+  "devDependencies": {
+    "web-vitals": "^4.2.4"
+  }
+}
