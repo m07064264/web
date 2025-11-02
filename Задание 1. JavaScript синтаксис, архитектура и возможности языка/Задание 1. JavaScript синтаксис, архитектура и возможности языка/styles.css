@@ -1,0 +1,54 @@
+
+.Form {
+	display: flex;
+	width: 30%;
+	height: 650px;
+	background: linear-gradient(to bottom, #ffff00, #dddd45, #dcdc97);
+	border-radius: 30px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.Container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 670px;
+}
+
+
+.button {
+	width: 180px;
+	height: 30px;
+}
+
+#info {
+	
+}
+.title {
+	font-size:30px;
+}
+.m {
+	display:flex;
+	flex-direction: row;
+}
+
+.f {
+	display:flex;
+	flex-direction:row;
+}
+.container-1 input {
+	width: 200px;
+}
+.popup {
+	display: none;
+	width: 300px;
+	height: 500px;
+	background: linear-gradient(to bottom, #45acdd, #b2d4e4);
+	z-index: 10;
+	position:fixed;
+	opacity: 0.7;
+	color: black;
+
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Моя форма</title>
+</head>
+<body>
+ 
+<div class="Container">
+    <div class="Form">
+        <div class="container-1">
+            <div class="title"><p>Личная форма</p></div>
+            <div id="name">
+                <p>Введите ваше имя</p>
+                <input id="nameId" type="text" placeholder="Ваше имя" />
+            </div>
+
+            <div id="surname">
+                <p>Введите вашу фамилию</p>
+                <input id="surnameId" type="text" placeholder="Ваше фамилия" />
+            </div>
+
+            <div id="date">
+                <p>Введите вашу дату рождения</p>
+                <input id="dateId" type="date" placeholder="Ваша дата рождения" />
+            </div>
+
+            <div id="number">
+                <p>Введите ваш номер телефона</p>
+                <input id="numberId" type="tel" placeholder="Ваш номер" />
+            </div>
+
+            <div id="email">
+                <p>Введите вашу почту</p>
+                <input id="emailId" type="email" placeholder="Ваша почта" />
+            </div>
+        </div>
+
+        <div id="gender">
+            <p>ваш пол</p>
+            <div class="m">
+                <input id="mId" type="radio" name="genderId" value="Мужской" />
+                <p>Мужской</p>
+            </div>
+            <div class="f">
+                <input id="fId" type="radio" name="genderId" value="Женский" />
+                <p>Женский</p>
+            </div>
+        </div>
+
+        <div class="button">
+            <button onclick="submit()" button class="button">
+                отправить
+            </button>
+        </div>
+        <div id="popup" class="popup" style="display:none"></div>
+
+    </div>
+</div>
+
+
+<script>
+    function submit() {
+
+        let popup = document.getElementById("popup");
+        let name = document.getElementById("nameId");
+        let surname = document.getElementById("surnameId");
+        let date = document.getElementById("dateId");
+        let number = document.getElementById("numberId");
+        let email = document.getElementById("emailId");
+        let gender;
+
+        console.log("ваше имя " + name.value)
+        console.log("ваша фамилия " + surname.value)
+        console.log("ваша дата рождения " + date.value)
+        console.log("ваш номер телефона " + number.value)
+        console.log("ваша почта " + email.value)
+
+        
+        if (document.getElementById("mId").checked) {
+            gender = document.getElementById("mId");
+            console.log("ваш пол " + gender.value)
+        } else if (document.getElementById("fId").checked) {
+            gender = document.getElementById("fId");
+            console.log("ваш пол " + gender.value)
+        }
+
+        if (popup.style.display == 'none') {
+            popup.style.display = 'block';
+            popup.innerHTML = `
+                <p>ваше имя ${name.value}</p>
+            <p>ваша фамилия ${surname.value}</p>
+            <p>ваша дата рождения ${date.value}</p>
+            <p>ваш номер телефона ${number.value}</p>
+            <p>ваша почта ${email.value}</p>
+            <p>ваш пол ${gender.value}</p>
+            `;
+        } else {
+            popup.style.display = 'none';
+        }
+        
+    }
+</script>
+</body>
+</html>
