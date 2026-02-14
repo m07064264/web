@@ -1,0 +1,62 @@
+"use strict";
+
+function printFiles(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        // Очищаем данные и переводим в BigInt для точности
+        const lines = reader.result.split('\n').filter(s => s.trim());
+        const n = parseInt(lines[0]);
+        const weights = lines.slice(1).map(BigInt);
+
+        let currentSum = 0n;
+        let leftMass = 0n;
+        let rightMass = 0n;
+        const m = Math.floor(n / 2); // Дистанция до "экватора"
+
+        // 1. Считаем начальное состояние для пункта 0
+        for (let i = 1; i < n; i++) {
+            let dist = BigInt(i <= m ? i : n - i);
+            currentSum += weights[i] * dist;
+
+            // Распределяем веса по полусферам
+            if (i <= m) rightMass += weights[i];
+            else leftMass += weights[i];
+        }
+
+        let minSum = currentSum;
+        let bestPoint = 0;
+
+        // 2. Двигаемся по кольцу за O(N)
+        for (let i = 0; i < n - 1; i++) {
+            // При переезде из i в i+1:
+            // Те, кто был справа, стали ближе (-1 км).
+            // Те, кто слева + пункт i (откуда уехали), стали дальше (+1 км).
+            currentSum = currentSum - rightMass + (leftMass + weights[i]);
+
+            // 3. Сдвигаем "экватор"
+            // Пункт, который переходит из правой зоны в левую (на противоположной стороне)
+            let oppositeIdx = (i + 1 + m) % n;
+            
+            // Обновляем массы для следующего шага
+            rightMass -= weights[i + 1];   // Приехали в этот пункт, он больше не "справа"
+            rightMass += weights[oppositeIdx]; // Этот зашел в правую зону с той стороны
+            leftMass -= weights[oppositeIdx];  // И вышел из левой
+            leftMass += weights[i];        // Тот, откуда уехали, теперь "слева"
+
+            if (currentSum < minSum) {
+                minSum = currentSum;
+                bestPoint = i + 1;
+            }
+        }
+
+        // Вывод (умножаем на 3 по условию задачи)
+        console.log(`Минимальная стоимость: ${(minSum * 3n).toString()}`);
+        alert(`Пункт № ${bestPoint + 1}, Сумма: ${(minSum * 3n).toString()}`);
+    };
+    reader.readAsText(file);
+}
+
+document.getElementById("files").addEventListener("change", printFiles);
